@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <GAME_DIR>.MolderCraft</GAME_DIR>
+    <LOGS_DIR>logs</LOGS_DIR>
+    <LAUNCHER_JSON>launcher.json</LAUNCHER_JSON>
+    <LIBS_URL>https://libraries.minecraft.net</LIBS_URL>
+    <UPDATE_URL>http://moldercraft.com/launcher/update</UPDATE_URL>
+    <LAUNCHER_VERSION_URL>launcher-version.php</LAUNCHER_VERSION_URL>
+    <LAUNCHER_URL>launcher.jar</LAUNCHER_URL>
+</config>

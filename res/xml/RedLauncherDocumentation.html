@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Документация грамматики DTD</title>
+<meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+</head>
+
+<!-- Generated on 27.04.2014 by NetBeans XML module. -->
+<body>
+
+<hr />
+<h2>Индекс элементов</h2>
+<ul><li><tt><a href="#RedLauncher">RedLauncher</a></tt></li>
+<li><tt><a href="#height">height</a></tt></li>
+<li><tt><a href="#name">name</a></tt></li>
+<li><tt><a href="#size">size</a></tt></li>
+<li><tt><a href="#version">version</a></tt></li>
+<li><tt><a href="#width">width</a></tt></li>
+</ul>
+
+<hr />
+<h2>Подробные данные элемента</h2>
+
+
+<hr />
+<h2><a name="RedLauncher"></a>RedLauncher</h2>
+<div>Содержит сведения о приложении.</div>
+<p><b>Модель содержимого элемента</b></p>
+<p><tt>(<a href="#name">name</a>&nbsp;| <a href="#version">version</a>&nbsp;| <a href="#size">size</a>)*</tt></p>
+<p><b>Объект ссылки</b></p>
+<p><tt></tt></p>
+
+
+<hr />
+<h2><a name="name"></a>name</h2>
+<div>Имя приложения.</div>
+<p><b>Модель содержимого элемента</b></p>
+<p><tt>(#PCDATA)*</tt></p>
+<p><b>Объект ссылки</b></p>
+<p><tt><a href="#RedLauncher">RedLauncher</a></tt></p>
+
+
+<hr />
+<h2><a name="version"></a>version</h2>
+<div>Версия приложения.</div>
+<p><b>Модель содержимого элемента</b></p>
+<p><tt>(#PCDATA)*</tt></p>
+<p><b>Объект ссылки</b></p>
+<p><tt><a href="#RedLauncher">RedLauncher</a></tt></p>
+
+
+<hr />
+<h2><a name="size"></a>size</h2>
+<div>Размеры окна.</div>
+<p><b>Модель содержимого элемента</b></p>
+<p><tt>(<a href="#width">width</a>&nbsp;| <a href="#height">height</a>)*</tt></p>
+<p><b>Объект ссылки</b></p>
+<p><tt><a href="#RedLauncher">RedLauncher</a></tt></p>
+
+
+<hr />
+<h2><a name="width"></a>width</h2>
+<div>Ширина окна.</div>
+<p><b>Модель содержимого элемента</b></p>
+<p><tt>(#PCDATA)*</tt></p>
+<p><b>Объект ссылки</b></p>
+<p><tt><a href="#size">size</a></tt></p>
+
+
+<hr />
+<h2><a name="height"></a>height</h2>
+<div>Высота окна.</div>
+<p><b>Модель содержимого элемента</b></p>
+<p><tt>(#PCDATA)*</tt></p>
+<p><b>Объект ссылки</b></p>
+<p><tt><a href="#size">size</a></tt></p>
+</body></html>

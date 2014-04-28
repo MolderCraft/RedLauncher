@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<messages>
+    <LOADING_CONFIG>Загрузка настроек: </LOADING_CONFIG>
+    <SAVING_CONFIG>Cохранение настроек: </SAVING_CONFIG>
+    <BEGINING>Загрузка </BEGINING>
+    <IN_PATH> в </IN_PATH>
+    <ENDED> завершена</ENDED>
+    <GAME_DIR_SET_TO>Дирректория игры: </GAME_DIR_SET_TO>
+    <CURENT_VERSOIN>Текущая версия: </CURENT_VERSOIN>
+    <LAST_VERSION> Последаняя версия: </LAST_VERSION>
+    <UPDATING_LAUNCHER>Обновление лаунчера</UPDATING_LAUNCHER>
+    <MINECRAFT_VERSION>Версия MineCraft: </MINECRAFT_VERSION>
+    <UPDATING_CLIENT>Загрузка недостающих компонентов</UPDATING_CLIENT>
+    <EXTRACKTING_FILE>Распаковка </EXTRACKTING_FILE>
+    <FILES_FROM> файлов из </FILES_FROM>
+    <IN_DIRECTORY> в дирректорию </IN_DIRECTORY>
+    <ENDED> завершена</ENDED>
+</messages>

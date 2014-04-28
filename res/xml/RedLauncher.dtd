@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--- Сведения о приложении. -->
+<!ELEMENT RedLauncher (name|version|size)*>
+
+<!--- Имя приложения. -->
+<!ELEMENT name (#PCDATA)>
+
+<!--- Версия приложения. -->
+<!ELEMENT version (#PCDATA)>
+
+<!--- Размеры окна. -->
+<!ELEMENT size (width|height)*>
+
+<!--- Ширина окна. -->
+<!ELEMENT width (#PCDATA)>
+
+<!--- Высота окна. -->
+<!ELEMENT height (#PCDATA)>

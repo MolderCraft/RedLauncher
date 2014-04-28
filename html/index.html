@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UI</title>
+        <meta charset="UTF-8">
+
+        <!-- Начало: Временный скрипт -->
+        <script>
+            /*function showLoading() {
+             document.getElementById('loadingBlock').style.display = 'block';
+             document.getElementById('temp1').style.display = 'block';
+             }
+             function moveLoading() {
+             document.getElementById('loadingLine').style.width = '30%';
+             document.getElementById('loadingText').innerHTML = document.getElementById('loadingLine').style.width;
+             document.getElementById('temp2').namevalue = 30;
+             }
+             setTimeout(showLoading, 1000);
+             setTimeout(moveLoading, 1500);*/
+        </script>
+        <!-- Конец: Временный скрипт -->
+
+        <script>
+            window.onload = function() {
+                document.getElementById('login').value = app.getLogin();
+                document.getElementById('ram-range').max = app.getMaxRam();
+                if (app.getRam() !== "") {
+                    document.getElementById('ram-range').value = app.getRam();
+                }
+                ramRangeChange();
+                //document.getElementById('ram-text').textContent = app.getRam() + " / " + app.getMaxRam();
+                if (app.getServer() !== "") {
+                    document.getElementById('server').value = app.getServer();
+                }
+                document.getElementById('version').textContent = "version " + app.getVersion();
+            };
+
+            function hideLoadingBlock() {
+                document.getElementById('loadingBlock').style.display = 'none';
+                document.getElementById('loadingFile').style.display = 'none';
+                document.getElementById('loadingLine').style.display = 'none';
+                document.getElementById('loadingText').style.display = 'none';
+            }
+
+            function showLoadingBlock() {
+                document.getElementById('loadingBlock').style.display = 'block';
+                document.getElementById('loadingFile').style.display = 'block';
+                document.getElementById('loadingLine').style.display = 'block';
+                document.getElementById('loadingText').style.display = 'block';
+            }
+
+            function loginCheck(value) {
+                value = value.replace(/[^0-9a-zA-Z-_]/g, '');
+            }
+
+            function ramRangeChange() {
+                document.getElementById('ram-text').textContent = document.getElementById('ram-range').value + ' / '
+                        + document.getElementById('ram-range').max + ' МБ';
+            }
+
+            function join() {
+                app.setLogin(document.getElementById('login').value);
+                app.setRam(document.getElementById('ram-range').value);
+                app.setServer(document.getElementById('server').value);
+                app.joinToGame();
+            }
+
+            function updateLoading() {
+                showLoadingBlock();
+                setTimeout(update, 10);
+            }
+
+            function update() {
+                if (!app.isDownload()) {
+                    hideLoadingBlock();
+                    join();
+                    return;
+                }
+                p = parseInt(app.getDownloadPosition() * 100 / app.getMaxDownloadPosition());
+                document.getElementById('loadingFile').textContent = app.getCurentFile();
+                document.getElementById('loadingLine').style.width = p + '%';
+                document.getElementById('loadingText').innerHTML = document.getElementById('loadingLine').style.width;
+                setTimeout(update, 100);
+            }
+        </script>
+
+        <style>
+            /* Общие стили */
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 15px 0;
+            }
+            .noselect {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            /* Позиционирование главного блока */
+            div.block {
+                margin-left: 50%;
+            }
+            div.block div.margin {
+                margin-left: -200px;
+            }
+            div.block div.main {
+                width: 400px;
+                text-align: center;
+            }
+
+            /* Форма входа */
+            p {
+                margin: 0 0 7px;
+            }
+            #ram-text {
+                padding-right: 100px;
+                font-family: Verdana;
+                font-size: 12px;
+                color: #a9a9a9;
+                text-align: right;
+            }
+
+            /* Строка логина */
+            input#login {
+                width: 186px;
+                margin: 0;
+                padding: 5px;
+                border: 2px solid #c9c9c9;
+                font-family: Verdana;
+                font-size: 14px;
+            }
+            input#login:active, input#login:focus {
+                border: 2px solid #a3a3a3;
+                outline: none;
+            }
+
+            /* Кнопка Входа */
+            a.button {
+                text-decoration: none;
+            }
+            a.button div {
+                width: 196px;
+                margin-left: 100px;
+                padding: 5px 0;
+                border: 2px solid #c9c9c9;
+                font-family: Verdana;
+                font-size: 14px;
+                font-weight: bold;
+                color: #808080;
+                cursor: pointer;
+                /* Градиент фона */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+            }
+            a.button div:hover, a.button:focus div {
+                border: 2px solid #a3a3a3;
+                color: #696969;
+                outline: none;
+                /* Градиент фона */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f3f3f3), color-stop(51%,#ededed), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+            }
+            a.button:focus {
+                outline: none;
+            }
+            a.button div:active {
+                color: #505050;
+                /* Градиент фона */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(49%,#d1d1d1), color-stop(50%,#dbdbdb), color-stop(100%,#e2e2e2)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #fefefe 0%,#d1d1d1 49%,#dbdbdb 50%,#e2e2e2 100%); /* Chrome10+,Safari5.1+ */
+            }
+
+            /* Слайдер RAM */
+            input[type=range]#ram-range {
+                -webkit-appearance: none;
+                background-color: #dfdfdf;
+                width: 200px;
+                height: 20px;
+                cursor: pointer;
+            }
+            input[type="range"]#ram-range:hover, input[type="range"]#ram-range:focus {
+                background-color: #d8d8d8;
+                outline: none;
+            }
+            input[type="range"]#ram-range::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                background-color: #b3b3b3;
+                opacity: 0.5;
+                width: 10px;
+                height: 26px;
+            }
+            input[type="range"]#ram-range:hover::-webkit-slider-thumb, input[type="range"]#ram-range:focus::-webkit-slider-thumb {
+                background-color: #696969;
+                opacity: 0.6;
+            }
+
+            /* Выпадающий список */
+            select#server {
+                width: 200px;
+                border: 2px solid #c9c9c9;
+                margin: 0;
+                padding: 5px 0;
+                font-family: Verdana;
+                font-size: 12px;
+                color: #808080;
+            }
+            select#server:focus {
+                border: 2px solid #a3a3a3;
+                color: #505050;
+                outline: none;
+            }
+            div#loadingBlock {
+                height: 30px;
+                margin: 10px 0 0 0;
+                padding: 0;
+                display: none;
+                border: 2px solid #c9c9c9;
+                background-color: #fafafa;
+            }
+            div#loadingBlock div#loadingLine {
+                width: 0%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: 0 0 2px #505050;
+                /* Градиент фона */
+                background: #ccffcc; /* Old browsers */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ccffcc), color-stop(50%,#aaffaa), color-stop(100%,#ccffcc)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #ccffcc 0%,#aaffaa 50%,#ccffcc 100%); /* Chrome10+,Safari5.1+ */
+            }
+            div.loadingText {
+                margin: 0;
+                padding: 7px;
+                font-family: Verdana;
+                font-size: 14px;
+                color: #808080;
+            }
+            /* Конец формы */
+        </style>
+    </head>
+    <body>
+        <div class="block">
+            <div class="margin">
+                <div class="main">
+                    <p><input id="login" type="text" name="login" maxlength="40" onKeyUp="loginCheck(this.value);" onChange="loginCheck(this.value);" placeholder="Ваш ник"></p>
+                    <p><input id="ram-range" type="range" min="512" max="4096" step="256" onChange="ramRangeChange();"></p>
+                    <p id="ram-text" class="noselect">1024 / 4096 МБ</p>
+                    <p>
+                        <select id="server" name="server">
+                            <!--<option value="Acropolis" title="1.7.5">Acropolis Kingdom</option>-->
+                            <option value="Exclud" title="1.7.5">Exclud Modern</option>
+                        </select>
+                    </p>
+                    <a class="button noselect" href="#" onClick="join();">
+                        <div>Войти</div>
+                    </a>
+                    <div id="loadingBlock" class="noselect" style="display: none;">
+                        <div id="loadingFile" class="loadingText" style="float: left;">Загрузка...</div>
+                        <div id="loadingText" class="loadingText" style="float: right;">0%</div>
+                        <div id="loadingLine"></div>
+                    </div>
+                    <p id="temp1" style="display: none;">
+                        <input id="temp2" type="range" style="width: 100%; margin: 0;"
+                               min="0" max="100" step="1" value="0"
+                               onChange="document.getElementById('loadingLine').style.width = this.value + '%';
+                                       document.getElementById('loadingText').textContent = this.value + '%';">
+                    </p>
+                </div>
+            </div>
+            <div id="version"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--- Настройки лаунчера. -->
+<!ELEMENT config (GAME_DIR|LOGS_DIR|LAUNCHER_JSON|LIBS_URL|UPDATE_URL|LAUNCHER_VERSION_URL|LAUNCHER_URL)*>
+
+<!--- Имя дирректории игры. -->
+<!ELEMENT GAME_DIR (#PCDATA)>
+
+<!--- Имя директории логов. -->
+<!ELEMENT LOGS_DIR (#PCDATA)>
+
+<!--- Имя файла настроек. -->
+<!ELEMENT LAUNCHER_JSON (#PCDATA)>
+
+<!--- Ссылка на библиотеки. -->
+<!ELEMENT LIBS_URL (#PCDATA)>
+
+<!--- Ссылка на веб часть. -->
+<!ELEMENT UPDATE_URL (#PCDATA)>
+
+<!--- Ссылка на версия лаунчера. -->
+<!ELEMENT LAUNCHER_VERSION_URL (#PCDATA)>
+
+<!--- Ссылка на лаунчер. -->
+<!ELEMENT LAUNCHER_URL (#PCDATA)>
